@@ -23,6 +23,7 @@ def execution(cmd, county_data):
         filter = county_data
         for x in filter:
             print(x)
+
     elif cmd[0] == "filter-state": #looks for the state filter
         filter = hw3.filter_by_state(county_data, cmd[1])
         for x in filter: #For each in filter adds new entry as that is what is wanted
@@ -39,9 +40,6 @@ def execution(cmd, county_data):
             filter = hw3.below_poverty_level_greater_than(county_data, int(cmd[2]))
         else:
             return SyntaxError #if there is an error with the specification returns syntax error
-        print("2014 ", cmd[1])
-        for x in filter: #Shows all the data
-            print(x)
 
     elif cmd[0] == "filter-lt": #filters for percentages less than what was wanted
         splitSearch = cmd[1].split('.') #since more specific with area needs one more breakdown with operation syntax
@@ -53,10 +51,6 @@ def execution(cmd, county_data):
             filter = hw3.below_poverty_level_less_than(county_data, int(cmd[2]))
         else:
             return SyntaxError #If there is an error prints a syntax error
-
-        print("2014 ", cmd[1])
-        for x in filter: #Prints all the new data that was chosen
-            print(x)
 
     elif cmd[0] == "population-total": #grabs total population and prints it
         filter = hw3.population_total(county_data)
